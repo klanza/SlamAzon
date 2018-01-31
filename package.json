@@ -1,0 +1,28 @@
+{
+  "name": "slamazon",
+  "version": "1.0.0",
+  "description": "Command line shopping application using node.js and MySQL.",
+  "main": "slamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klanza/SlamAzon.git"
+  },
+  "author": "Kenneth Lanza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klanza/SlamAzon/issues"
+  },
+  "homepage": "https://github.com/klanza/SlamAzon#readme",
+  "dependencies": {
+    "eslint": "^4.16.0",
+    "inquirer": "^5.0.1",
+    "mysql": "^2.15.0",
+    "only": "0.0.2"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
+  }
+}
