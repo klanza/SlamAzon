@@ -20,7 +20,8 @@
     "eslint": "^4.16.0",
     "inquirer": "^5.0.1",
     "mysql": "^2.15.0",
-    "only": "0.0.2"
+    "only": "0.0.2",
+    "table": "^4.0.2"
   },
   "devDependencies": {
     "eslint-config-google": "^0.9.1"

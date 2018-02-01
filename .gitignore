@@ -57,3 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
+# Password for MySQL server
+password.js
