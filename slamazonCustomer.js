@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
     database: 'slamazon_db',
 });
 
-// Inquirer prompt questions
+// Questions used in 'inquirer' npm package
 const purchaseQuestions = [
     {
         type: 'input',
@@ -50,6 +50,22 @@ const queryDatabase = () => {
     });
 };
 
+const queryRow = (answers) => {
+    let query = 'SELECT stock_quantity, product_name, price FROM products WHERE ?';
+    connection.query(query, {item_id: answers.itemID}, function(err, res) {
+        if (parseInt(answers.quantity) <= parseInt(res[0].stock_quantity)) {
+            console.log('Success');
+            inquirer.prompt({
+                type: 'confirm',
+                name: 'confirm',
+                message: `Confirm your order: Purchasing ${answers.quantity} units of ${res[0].product_name}?`
+            }).then((answer) => {
+                console.log('yay');
+            });
+        }
+    });
+};
+
 // Create table using 'table' npm package
 const inventoryTable = (res) => {
     let arrayTable = [];
@@ -74,8 +90,9 @@ connection.connect(function(err) {
     console.log('===============================================================');
     queryDatabase().then((response) => {
         inventoryTable(response);
-        inquirer.prompt(questions).then((answers) {
-
+        inquirer.prompt(purchaseQuestions).then((answers) => {
+            queryRow(answers);
+            connection.end();
         });
     });
 });
